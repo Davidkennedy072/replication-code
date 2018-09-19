@@ -1,2 +1,2 @@
 # replication-code
-david kris replication code
+Replication data analysis code

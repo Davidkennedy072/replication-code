@@ -13,16 +13,20 @@ import scipy.io as sio
 import pandas as pd
 import matplotlib.pyplot as plt
 import sys
+
 sys.path.append('C:/Users/zae/Documents/summer2018')
 
 from savefiguretopdf import savefigureloop
 from rankimagebydifficulty import getorder
-#from savefiguretopdf import savefigureloop
 
 def loadsio(file = 'D:/contourSegInfoAllPost_20.mat'):
     return sio.loadmat(file)
 
 def contourdata(matdata, trialtype, contournumber):
+    '''
+    Takes in matlab contour file, trialtype = 'animal' or = 'metamer', contournumber
+    Returns onecontourx, onecontoury used to form contour plot
+    '''
     if trialtype == 'animal':
         allcontours = matdata['closedContourOrig'][0]
         onecontourx = allcontours[contournumber-1][0][0][0]
@@ -52,14 +56,6 @@ def contourplot(trialtype = 'animal', contournumber = 190):
             contournumber, accuracy = None, showfig = True)
 
 if __name__ == '__main__':
-#    matdata = loadsio(file = 'D:/contourSegInfoAllPost_20.mat')
-#    savefigure, pdfobject = savefigureloop(path = 'C:/Users/zae/Documents/summer2018/ReplicationData', 
-#                                pdfname = 'metamercontourbydifficuly.pdf')
-#    for contourorder in getorder():
-#        fig = plotter(*contourdata(matdata, 'metamer', contourorder[0]), contourorder[0], 
-#                      contourorder[1], showfig = False)
-#        savefigure(fig)
-#    pdfobject.close()
     pass
         
 
